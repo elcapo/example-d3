@@ -8,7 +8,7 @@ const { src, dest } = require('gulp');
 const { babel } = require('gulp-babel');
 
 function build(callback) {
-  src('node_modules/bootstrap/dist/css/bootstrap.min.css')
+  src('node_modules/bootstrap/dist/css/bootstrap.min.css*')
     .pipe(dest('public/css/'));
 
   callback();

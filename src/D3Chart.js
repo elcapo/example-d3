@@ -10,14 +10,23 @@ class D3Chart {
       .attr("height", 500);
 
     d3.json(url).then(data => {
+      const y = d3.scaleLinear()
+        .domain([0, 272])
+        .range([0, 500]);
+
+      const x = d3.scaleBand()
+        .domain(data.map(d => d.name))
+        .range([0, 800])
+        .padding(0.4);
+
       const rects = svg.selectAll("rect")
         .data(data);
 
       rects.enter().append("rect")
-        .attr("x", (d, i) => i * 100)
-        .attr("y", 50)
+        .attr("x", d => x(d.name))
+        .attr("y", 0)
         .attr("width", 50)
-        .attr("height", d => d.height)
+        .attr("height", d => y(d.height))
         .attr("fill", "green");
     });
   }
