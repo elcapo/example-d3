@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 
-const data = [20, 12, 16, 25, 20];
+const url = "http://localhost:3000/data/ages.json";
 
 class D3Chart {
   constructor(element) {
@@ -9,15 +9,17 @@ class D3Chart {
       .attr("width", 500)
       .attr("height", 500);
 
-    const rects = svg.selectAll("rect")
-      .data(data);
+    d3.json(url).then(ages => {
+      const rects = svg.selectAll("rect")
+        .data(ages);
 
-    rects.enter().append("rect")
-      .attr("x", (d, i) => i * 100)
-      .attr("y", 50)
-      .attr("width", 50)
-      .attr("height", d => d)
-      .attr("fill", "grey");
+      rects.enter().append("rect")
+        .attr("x", (d, i) => i * 100)
+        .attr("y", 50)
+        .attr("width", 50)
+        .attr("height", d => d.age)
+        .attr("fill", "grey");
+    });
   }
 }
 
