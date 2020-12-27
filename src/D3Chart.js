@@ -17,8 +17,13 @@ class D3Chart {
         .attr("x", (d, i) => i * 100)
         .attr("y", 50)
         .attr("width", 50)
-        .attr("height", d => d.age)
-        .attr("fill", "grey");
+        .attr("height", d => d.age * 10)
+        .attr("fill", d => {
+          if (d.age > 10) {
+            return "red";
+          }
+          return "green";
+        });
     });
   }
 }
