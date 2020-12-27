@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 
 const url = "http://localhost:3000/data/tallest_men.json";
-const MARGIN = { TOP: 10, BOTTOM: 20, LEFT: 30, RIGHT: 20 };
+const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 60, RIGHT: 20 };
 const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
@@ -34,6 +34,19 @@ class D3Chart {
 
       const yAxisCall = d3.axisLeft(y);
       svg.append("g").call(yAxisCall);
+
+      svg.append("text")
+        .attr("x", WIDTH / 2)
+        .attr("y", HEIGHT + 40)
+        .attr("text-anchor", "middle")
+        .text("The world's tallest men");
+
+      svg.append("text")
+        .attr("transform", `rotate(-90)`)
+        .attr("x", -(HEIGHT / 2))
+        .attr("y", -40)
+        .attr("text-anchor", "middle")
+        .text("Height (cm)");
 
       const rects = svg.selectAll("rect")
         .data(data);
