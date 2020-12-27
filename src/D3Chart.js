@@ -108,10 +108,13 @@ class D3Chart {
     rects.enter()
       .append("rect")
       .attr("x", d => x(d.name))
-      .attr("y", d => y(d.height))
       .attr("width", x.bandwidth)
-      .attr("height", d => HEIGHT - y(d.height))
-      .attr("fill", "green");
+      .attr("y", HEIGHT)
+      .attr("fill", "green")
+      .transition()
+      .duration(500)
+      .attr("y", d => y(d.height))
+      .attr("height", d => HEIGHT - y(d.height));
   }
 }
 
