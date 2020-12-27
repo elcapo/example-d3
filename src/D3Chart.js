@@ -9,14 +9,15 @@ class D3Chart {
       .attr("width", 500)
       .attr("height", 500);
 
-    data.forEach((d, i) => {
-      svg.append("rect")
-      .attr("x", i * 100)
+    const rects = svg.selectAll("rect")
+      .data(data);
+
+    rects.enter().append("rect")
+      .attr("x", (d, i) => i * 100)
       .attr("y", 50)
       .attr("width", 50)
-      .attr("height", d)
+      .attr("height", d => d)
       .attr("fill", "grey");
-    });
   }
 }
 
