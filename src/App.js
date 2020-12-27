@@ -7,11 +7,9 @@ class App extends React.Component {
     this.state = {
       personClicks: 0
     }
-
-    this.personClicked = this.personClicked.bind(this);
   }
 
-  personClicked() {
+  personClicked = () => {
     this.setState({ personClicks: this.state.personClicks + 1 });
   }
 
