@@ -6,12 +6,13 @@ import ChartWrapper from './ChartWrapper';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.gender = "men";
-    this.genderSelected = this.genderSelected.bind(this);
+    this.state = {
+      gender: "women"
+    }
   }
 
-  genderSelected(gender) {
-    this.gender = gender;
+  genderSelected = gender => {
+    return this.setState({gender});
   }
 
   render() {
@@ -28,7 +29,7 @@ class App extends React.Component {
           </Row>
           <Row>
             <Col xs={12}>
-              <ChartWrapper gender={this.gender} />
+              <ChartWrapper gender={this.state.gender} />
             </Col>
           </Row>
         </Container>

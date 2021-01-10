@@ -15,8 +15,12 @@ class GenderDropdown extends React.Component {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item onSelect={() => this.genderSelected("men")}>Men</Dropdown.Item>
-          <Dropdown.Item onSelect={() => this.genderSelected("women")}>Women</Dropdown.Item>
+          <Dropdown.Item onSelect={() => this.genderSelected("women")}>
+            Women
+          </Dropdown.Item>
+          <Dropdown.Item onSelect={() => this.genderSelected("men")}>
+            Men
+          </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     );
