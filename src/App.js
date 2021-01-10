@@ -4,6 +4,20 @@ import GenderDropdown from './GenderDropdown';
 import ChartWrapper from './ChartWrapper';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    const app = this;
+    app.gender = "men";
+    app.genderSelected = this.genderSelected.bind(this);
+  }
+
+  genderSelected(gender) {
+    const app = this;
+    app.gender = gender;
+    console.log("Gender is now", app.gender);
+  }
+
   render() {
     return (
       <div className="App">
@@ -13,7 +27,7 @@ class App extends React.Component {
         <Container>
           <Row>
             <Col xs={12}>
-              <GenderDropdown />
+              <GenderDropdown genderSelected={this.genderSelected} />
             </Col>
           </Row>
           <Row>
