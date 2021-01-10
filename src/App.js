@@ -1,5 +1,6 @@
 import React from 'react';
-import { Navbar, Container } from 'react-bootstrap';
+import { Navbar, Container, Row, Col } from 'react-bootstrap';
+import GenderDropdown from './GenderDropdown';
 import ChartWrapper from './ChartWrapper';
 
 class App extends React.Component {
@@ -10,7 +11,16 @@ class App extends React.Component {
           <Navbar.Brand>Tall People</Navbar.Brand>
         </Navbar>
         <Container>
-          <ChartWrapper />
+          <Row>
+            <Col xs={12}>
+              <GenderDropdown />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <ChartWrapper />
+            </Col>
+          </Row>
         </Container>
       </div>
     );
