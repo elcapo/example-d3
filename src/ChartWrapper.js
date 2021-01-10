@@ -30,13 +30,6 @@ class ChartWrapper extends React.Component {
     return null;
   }
 
-  /*componentDidUpdate(props, state) {
-    if(this.state.chart.datasets) {
-      console.log("Datasets are ready and gender changed");
-      this.state.chart.update(state.gender);
-    }
-  }*/
-
   render() {
     return (
       <div ref="chart"></div>
