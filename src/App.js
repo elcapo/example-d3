@@ -6,16 +6,12 @@ import ChartWrapper from './ChartWrapper';
 class App extends React.Component {
   constructor(props) {
     super(props);
-
-    const app = this;
-    app.gender = "men";
-    app.genderSelected = this.genderSelected.bind(this);
+    this.gender = "men";
+    this.genderSelected = this.genderSelected.bind(this);
   }
 
   genderSelected(gender) {
-    const app = this;
-    app.gender = gender;
-    console.log("Gender is now", app.gender);
+    this.gender = gender;
   }
 
   render() {
@@ -32,7 +28,7 @@ class App extends React.Component {
           </Row>
           <Row>
             <Col xs={12}>
-              <ChartWrapper />
+              <ChartWrapper gender={this.gender} />
             </Col>
           </Row>
         </Container>

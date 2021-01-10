@@ -47,13 +47,7 @@ class D3Chart {
         men: datasets[1]
       };
 
-      let gender = "women";
-      chart.update(gender);
-
-      d3.interval(() => {
-        gender = (gender === "women") ? "men" : "women";
-        chart.update(gender);
-      }, 3000)
+      chart.update("women");
     });
   }
 
